@@ -19,3 +19,21 @@ export const searchBooks = createAsyncThunk<SearchResponse, { q: string; page?: 
   async ({ q, page = 1 }) =>
     (await api.get<SearchResponse>(`/search/${encodeURIComponent(q)}/${page}`)).data
 )
+
+export const fetchSearch = createAsyncThunk<
+  { books: BookSummary[]; total: number; page: number; query: string },
+  { query: string; page: number },
+  { rejectValue: string }
+>('search/fetch', async ({ query, page }, { rejectWithValue }) => {
+  try {
+    const { data } = await api.get(`/search/${encodeURIComponent(query)}/${page}`)
+    return {
+      books: Array.isArray(data?.books) ? data.books : [],
+      total: Number(data?.total ?? 0),
+      page: Number(data?.page ?? page),
+      query,
+    }
+  } catch (e: any) {
+    return rejectWithValue(e?.message ?? 'Search request failed')
+  }
+})

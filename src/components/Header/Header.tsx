@@ -21,10 +21,8 @@ export default function Header(){
             <img src={logo} alt="" className={s.logoImg}/>
           </Link>
 
-          <SearchBar
-            initialQuery={defaultQuery}
-            onSubmit={(q)=>navigate(`/search?q=${encodeURIComponent(q)}&page=1`)}
-          />
+          <SearchBar initialQuery={defaultQuery} />
+
 
           <div className={s.icons}>
             <button className={s.iconBtn} aria-label="Favorites"><img src={heart} alt=""/></button>

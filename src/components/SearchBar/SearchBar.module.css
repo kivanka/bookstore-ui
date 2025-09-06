@@ -1,29 +1,110 @@
-.search{ 
-    position:relative; 
-    flex:1; 
-    max-width:800px;
+.search{
+  position:relative; 
+  flex:1; 
+  max-width:800px;
 }
-
 .search input{
-  width:100%;
-  padding:12px 48px; 
-  border-radius:4px;
+  width:100%; 
+  height:48px; 
+  padding:0 48px;
+  border-radius:4px; 
   border:1px solid var(--border);
-  background:var(--search-bg);
-  color:var(--text); 
+  background:#f4f4ff; 
+  color:var(--text);
   font-size:20px; 
-  outline:none;
+  font-weight:400;
 }
-
 .search input::placeholder{ 
-  color:var(--text-40) 
+    color:var(--text-40) 
 }
-
 .icon{ 
     position:absolute; 
-    left:14px; 
+    left:12px; 
     top:50%; 
-    transform:translateY(-50%); 
-    z-index:2; 
-    pointer-events:none; 
+    transform:translateY(-50%) 
+}
+
+.dropdown{
+  position:absolute; 
+  left:0; 
+  right:0; 
+  top:52px; 
+  z-index:30;
+  background:#fff; 
+  border:1px solid var(--border); 
+  border-radius:8px;
+  box-shadow:0 10px 24px rgba(9,9,55,.10);
+  overflow:hidden;
+}
+
+.loading, .empty{
+  padding:14px; 
+  display:flex; 
+  align-items:center; 
+  gap:8px; 
+  color:var(--text-60);
+}
+.dot{ 
+    width:10px; 
+    height:10px; 
+    border-radius:50%; 
+    background:var(--violet); 
+    animation:b 1s infinite 
+}
+.dot:nth-child(2){ 
+    animation-delay:.15s 
+} 
+.dot:nth-child(3){ 
+    animation-delay:.3s 
+}
+@keyframes b{ 0%,80%,100%{transform:scale(0)} 40%{transform:scale(1)} }
+
+.item{
+  width:100%; 
+  border:0; 
+  background:#fff; 
+  cursor:pointer;
+  display:flex; 
+  gap:12px; 
+  align-items:center; 
+  padding:10px 12px;
+}
+.item:hover{ 
+    background:#f8f8ff 
+}
+.item img{ 
+    width:40px; 
+    height:56px; 
+    object-fit:contain; 
+    background:#fff 
+}
+.meta{ 
+    display:flex; 
+    justify-content:space-between; 
+    align-items:center; 
+    width:100% 
+}
+.title{ 
+    font-size:14px; 
+    color:var(--text) 
+}
+.price{ 
+    font-weight:800; 
+    color:var(--violet) 
+}
+
+.footer{ 
+    padding:8px; 
+    background:#fafaff; 
+    border-top:1px solid var(--border) 
+}
+.all{
+  width:100%;
+   height:36px; 
+   border:1px solid var(--border); 
+   border-radius:4px;
+  background:#fff; 
+  color:var(--text); 
+  font-weight:600; 
+  cursor:pointer;
 }
