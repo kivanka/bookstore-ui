@@ -1,0 +1,145 @@
+.details{ 
+    padding:40px 0 48px; 
+    background:#fff; 
+}
+
+
+.back{
+  display:inline-flex; 
+  align-items:center; 
+  gap:10px;
+  margin-bottom:22px; 
+  border:0; 
+  background:transparent; 
+  cursor:pointer;
+  color:var(--text); 
+  font-weight:600; 
+  font-size:24px;
+}
+
+.back img{ 
+    width:20px; 
+    height:20px; 
+}
+
+
+.cols{
+  display:grid;
+  grid-template-columns: 420px 1fr;
+  gap:48px;
+}
+
+
+.coverCard{
+  position:relative;
+  width:420px;
+  height:570px;
+  background:#F4F4FF;
+  border:1px solid var(--border);
+  border-radius:8px;
+  box-shadow:0 10px 24px rgba(9,9,55,.06);
+  overflow:hidden;         
+}
+
+.coverCard img{
+  position:absolute;
+  inset:60px;                 
+  width:calc(100% - 120px);
+  height:calc(100% - 120px);
+  object-fit:cover;            
+  display:block;
+}
+
+
+
+.info{ 
+    position:relative; 
+    display:flex; 
+    flex-direction:column; 
+}
+
+
+.fav{
+  position:absolute; 
+  right:0; 
+  top:0;
+  width:40px; 
+  height:40px; 
+  border-radius:50%;
+  border:1px solid var(--border); 
+  background:#F4F4FF;
+  display:grid; 
+  place-items:center; 
+  cursor:pointer;
+}
+
+.fav img{ 
+    width:20px; 
+    height:20px; 
+}
+
+
+.title{ 
+    margin:0 0 6px; 
+    font-weight:800; 
+    font-size:40px; 
+    color:var(--text); 
+}
+
+.authors{ 
+    margin:0 0 18px; 
+    color:var(--text-60); 
+    font-weight:600;
+    font-size: 32px;
+}
+
+.summary{ 
+    margin-top:4px;
+}
+
+.h{ 
+    font-weight:800; 
+    font-size:24px; 
+    margin-bottom:8px; 
+    color:var(--text);
+}
+.desc{ 
+    margin:0; 
+    line-height:1.7; 
+    color:var(--text-60); 
+    font-size: 20px;
+}
+
+
+.cta{ 
+    margin-top:auto; 
+}
+
+
+.buyBtn{
+  width:400px;                       
+  height:60px;
+  border:0; 
+  border-radius:4px;
+  background:var(--orange);
+  color:#fff; 
+  cursor:pointer;
+  display:flex; 
+  align-items:center; 
+  justify-content:space-between;
+  padding:0 20px; 
+  font-weight:600; 
+  font-size:16px;
+  margin-left: auto;
+}
+
+.btnPrice{ 
+    font-weight:500; 
+    font-size:20px; 
+}
+
+.btnText{ 
+    font-weight:600; 
+    font-size:20px;
+}
+

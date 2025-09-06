@@ -6,15 +6,24 @@ export interface BookSummary {
   image: string
   url: string
 }
-export interface BookDetail extends BookSummary {
+export type BookDetail = {
+  title: string
+  subtitle: string
   authors: string
   publisher: string
-  pages: string
-  year: string
-  rating: string
+  language?: string         
+  isbn10?: string           
+  isbn13: string
+  pages?: string
+  year?: string
+  rating?: string
   desc: string
+  price: string
+  image: string
+  url: string
   pdf?: Record<string, string>
 }
+
 export interface SearchResponse {
   error: string
   total: string
