@@ -19,27 +19,34 @@ export default function Home() {
 
   // как только пришли книги/увеличили "показать ещё", дотягиваем авторов
   useEffect(() => {
-    if (!items.length) return
-    const subset = items.slice(0, visible)
-    const toLoad = subset.filter(b => !authorsMap[b.isbn13])
-    if (!toLoad.length) return
+  if (status !== 'succeeded' || items.length === 0) return
 
-    let cancelled = false
-    ;(async () => {
-      const res = await Promise.allSettled(
-        toLoad.map(b =>
-          api.get(`/books/${b.isbn13}`)
-             .then(r => ({ id: b.isbn13, a: r.data.authors as string }))
-        )
-      )
-      if (cancelled) return
-      const patch: Record<string, string> = {}
-      res.forEach(r => { if (r.status === 'fulfilled') patch[r.value.id] = r.value.a })
-      if (Object.keys(patch).length) setAuthorsMap(prev => ({ ...prev, ...patch }))
-    })()
+  // только видимые карточки и те, по которым авторов ещё нет
+  const ids = items.slice(0, visible)
+    .map(b => b.isbn13)
+    .filter(id => !authorsMap[id])
 
-    return () => { cancelled = true }
-  }, [items, visible, authorsMap])
+  if (ids.length === 0) return
+
+  let cancelled = false
+  ;(async () => {
+    const results = await Promise.allSettled(ids.map(id => api.get(`/books/${id}`)))
+    if (cancelled) return
+
+    const patch: Record<string, string> = {}
+    for (const r of results) {
+      if (r.status === 'fulfilled') {
+        const d = r.value.data as { isbn13: string; authors?: string }
+        if (d.isbn13 && d.authors?.trim()) patch[d.isbn13] = d.authors.trim()
+      }
+    }
+    if (Object.keys(patch).length) {
+      setAuthorsMap(prev => ({ ...prev, ...patch }))
+    }
+  })()
+
+  return () => { cancelled = true }
+}, [status, items, visible])   // ← без authorsMap здесь
 
   return (
     <section className={s.booksGrid}>
