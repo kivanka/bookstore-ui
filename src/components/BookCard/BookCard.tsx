@@ -6,7 +6,8 @@ import s from './BookCard.module.css'
 type Props = { book: BookSummary; author?: string }
 
 export default function BookCard({ book, author }: Props) {
-  const authorText = (author && author.trim()) || book.subtitle || ''
+  const authorText = (author && author.trim()) || book.subtitle || '';
+{authorText && <div className={s.author}>{authorText}</div>}
 
   return (
     <div className={s.card}>
