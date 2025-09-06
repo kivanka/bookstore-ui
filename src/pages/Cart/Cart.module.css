@@ -1,0 +1,23 @@
+.cart{ padding:24px 0 48px; background:#fff; }
+
+.head{
+  display:flex; align-items:baseline; gap:16px;
+  margin:8px 0 18px;
+}
+.head h2{
+  margin:0; font-weight:800; font-size:24px; color:var(--text);
+}
+
+.clear{
+  border:0; background:transparent; cursor:pointer;
+  font-weight:600; font-size:18px; color:#EF6B4A;   /* оранжевый */
+}
+.clear:disabled{ opacity:.4; cursor:default }
+
+.empty{
+  padding:32px 0; color:var(--text-40);
+}
+.backLink{
+  display:inline-block; margin-top:6px;
+  color:var(--violet); font-weight:600; text-decoration:none;
+}
