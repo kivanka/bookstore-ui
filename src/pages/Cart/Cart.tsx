@@ -1,0 +1,1 @@
+export default function Cart(){ return <div className="containerBooks">Cart</div> }

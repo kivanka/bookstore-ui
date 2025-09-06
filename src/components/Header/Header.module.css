@@ -1,0 +1,53 @@
+.header{
+  background:var(--header);
+  box-shadow:0 8px 24px rgba(9,9,55,.06);
+  padding:35px 0;             
+}
+
+.inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logoImg{
+    width:60px;
+    display:block;
+}
+
+.icons{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.iconBtn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:44px;
+  border:1px solid var(--border);
+  border-radius:4px;
+  background:#F4F4FF;
+  padding:10px;
+  position:relative;
+}
+
+.iconBtn img{
+    width:22px;
+    display:block;
+}
+
+.badge{
+  position:absolute;
+  right:-6px;
+  top:-6px;
+  min-width:20px;
+  border-radius:12px;
+  background:var(--violet);
+  color:#fff;
+  font-size:12px;
+  display:grid;
+  place-items:center;
+  padding:0 6px;
+}

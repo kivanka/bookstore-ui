@@ -1,0 +1,1 @@
+export default function BookDetails(){ return <div className="containerBooks">Book details</div> }

@@ -1,0 +1,11 @@
+:root{
+  --page:#FFFFFF;          
+  --header:#FFFFFF;
+  --text:#090937;
+  --text-60: rgba(9,9,55,.6);
+  --text-40: rgba(9,9,55,.4);
+  --border: rgba(9,9,55,.10);
+  --violet:#6251DD;       
+  --orange:#EF6B4A;       
+  --search-bg:#F4F4FF;
+}
